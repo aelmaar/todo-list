@@ -1,38 +1,160 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+* {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #dbdbdb;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.app div {
+  flex-grow:.4;
+}
+.app__addItem h1 {
+    font-size:70px;
+    text-transform: uppercase;
+    font-weight:normal;
+    margin-bottom:30px;
+    text-align: center;
+    color:rgba(0,0,135,.8);
+}
+.app__modal {
+  height:50px;
+  margin-bottom:5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.modal {
+  text-align:center;
+}
+.modal p {
+  display:inline-block;
+  background:#fff;
+  padding:15px;
+  letter-spacing:2px;
+}
+.form {
+  display:flex;
+  margin-bottom:10px;
+}
+.form input {
+  padding:15px;
+  font-size:15px;
+  flex-grow:2;
+  outline:none;
+}
+.form button{
+  flex-grow:.3;
+  background:rgba(255,0,0,.7);
+  border:none;
+  outline:none;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  text-transform: uppercase;
+  cursor:pointer;
+}
+.form button:hover {
+  transition:all ease .3s;
+  background:rgba(255,0,0,.5);
+}
+.app__items {
+  height:416px;
+  overflow-y: auto;
+}
+.app__items::-webkit-scrollbar {
+  width:5px;
+}
+.app__items::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.4);
+  border-radius:20px;
+}
+.item {
+  display:flex;
+  justify-content:space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding:5px;
+  background:#fff;
+  animation:mymove 900ms forwards;
 }
-
-.App-link {
-  color: #61dafb;
+@keyframes mymove {
+  from{transform: scale(0);}
+  to{transform: scale(1);}
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.item div:first-child {
+  flex-grow: 1;
+  display:flex;
+  align-items:center;
+}
+.item div:first-child h4 {
+  text-transform: capitalize;
+}
+.item div:last-child {
+  text-align:right;
+  flex-shrink:0;
+}
+.item__removed {
+  animation:delete 900ms forwards;
+}
+@keyframes delete {
+  from{transform: scale(1);}
+  to{transform: scale(0);}
+}
+.item__form {
+  flex-grow:2;
+}
+.item__form input {
+  height:40px;
+  width:100%;
+  border:1px solid rgba(0,0,0,.5);
+  outline:none;
+}
+.btn {
+  border:none;
+  background:none;
+  cursor:pointer;
+  font-size:20px;
+  outline:none;
+}
+.fa-edit {
+  color:#0d6300;
+}
+.fa-trash-alt {
+  color:rgba(255,0,0,.7);
+}
+.fa-edit:hover {
+  transition:.2s;
+  color:rgba(13, 99, 0,.8);
+}
+.fa-trash-alt:hover {
+  transition:.2s;
+  color:rgba(255,0,0,.5);
+}
+.app__clear {
+  text-align:center;
+  margin-top:20px;
+}
+.app__btnClear {
+  border:none;
+  background:rgba(255,0,0,.7);
+  outline:none;
+  font-size:18px;
+  padding:10px;
+  color:white;
+  cursor: pointer;
+}
+.app__btnClear:hover {
+  transition: .2s;
+  background:rgba(255,0,0,.5);
+}
+@media all and (max-width:500px) {
+  .app__addItem h1 {
+    font-size:50px;
   }
 }
